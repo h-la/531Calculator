@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <title>531 Calculator</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">Home</a>
+      <a href="index.html">Info</a>
+      <h1>531 Calculator</h1>
+    </header>
+
+      <p>Add your max weights and how many round you wanna count them (min 1. max 12)</p>
+
+      <div>
+    <form>
+        <label for="rounds">Rounds:</label>
+        <input type="number" id="rounds" name="rounds" value=1 min="1" max="12"><br>
+        <p>Enter max weights in kg:</p>
+        <label for="squat">Squat:</label>   
+        <input type="number" id="squat" name="squat" min="1" max="999"><br>     
+        <label for="benchpress">Benchpress:</label>
+        <input type="number" id="benchpress" name="benchpress"><br>
+        <label for="deadlift">Deadlift:</label>   
+        <input type="number" id="deadlift" name="deadlift"><br>     
+        <label for="press">Press:</label>
+        <input type="number" id="press" name="press"><br>
+        <input type="button" value="Count weights" onclick="countValues();">
+        <input type="button" value="Clear" onclick="countValues();">
+    </form>
+  </div>
+
+    </br>
+
+    <table id="trainingslist"></table>
+
+    <script src="../javascript/code.js"></script>
+  </body>
+</html>
