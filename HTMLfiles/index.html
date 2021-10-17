@@ -7,11 +7,9 @@
 </head>
 <body>
   <header>
-    <a href="index.html">Home</a>
-    <a href="index.html">Info</a>
     <h1>531 Calculator</h1>
   </header>
-  <p>Add your max weights and how many round you wanna count them (min 1. max 12)</p>
+  <p>Add your max weights and how many round you want to count them (min 1. max 12)</p>
   <div>
     <form>
       <label for="rounds">Rounds:</label>
@@ -20,16 +18,23 @@
       <label for="squat">Squat:</label>
       <input type="number" id="squat" name="squat" min="1" max="999"><br>
       <label for="benchpress">Bench press:</label>
-      <input type="number" id="benchpress" name="benchpress"><br>
+      <input type="number" id="benchpress" name="benchpress" min="1" max="999"><br>
       <label for="deadlift">Deadlift:</label>
-      <input type="number" id="deadlift" name="deadlift"><br>
+      <input type="number" id="deadlift" name="deadlift" min="1" max="999"><br>
       <label for="press">Press:</label>
-      <input type="number" id="press" name="press"><br>
+      <input type="number" id="press" name="press" min="1" max="999"><br>
       <input type="button" value="Count weights" onclick="countValues();">
       <input type="button" value="Clear" onclick="clearValues();">
     </form>
   </div>
+  <div id="info"></div>
   <table id="trainingslist"></table>
   <script src="../javascript/code.js"></script>
+  <footer>
+    <a href="index.html">
+      <img src="../images/GitHub-Mark-32px.png" alt="GitHub Mark">
+      <p>Source code</p>
+    </a >
+  </footer>
 </body>
 </html>
