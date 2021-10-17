@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  max-width: 50em;
+  max-width: 60em;
   font-family: 'Helvetica', 'Arial', sans-serif;
   line-height: 1.5;
   padding: 4em 1em;
@@ -9,7 +9,7 @@ body {
 }
 
 h1 {
-  color: white;
+  color: #ffffff;
 }
 
 div {
@@ -20,13 +20,14 @@ div {
 form {
   text-align: center;
 }
+
 label {
-  padding-left: 20em;
+  padding-left: 24.5em;
   float:left
 }
 
 input[type=number] {
-  margin-right: 23em;
+  margin-right: 29.5em;
   width: 60px;
   float: right;
 }
@@ -36,23 +37,31 @@ input[type=button] {
 }
 
 table {
-    border:2px solid black;
+    border:1px solid #000000;
     color: black;
     margin-left: auto;
     margin-right: auto;
-  /*  background: black;*/
   }
 
 th {
-    border:1px solid black;
-  /*  background: white;*/
+    border:1px solid #000000;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
   }
 
 header {
     height: 100px;
-    background-color: black;
+    padding-top: 1em;
+    background-color: #000000;
   }
 
-  a {
-    color: white;
+  #info {
+    color: #bc0000;
+  }
+
+  footer {
+    border-top: 1px solid #000000;
+    margin-top: 20em;
+    padding: 3em;
+    text-align: center;
   }

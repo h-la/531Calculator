@@ -1,6 +1,6 @@
-let traininglist = document.getElementById("trainingslist");;
-let trSets
-let trReps
+let traininglist = document.getElementById("trainingslist");
+let trSets;
+let trReps;
 
 function Movement(name, trainingMax) {
     this.name = name;
@@ -19,8 +19,10 @@ const countValues = () => {
     let = benchpress = document.getElementById("benchpress").value || null;
     let deadlift = document.getElementById("deadlift").value || null;
     let press = document.getElementById("press").value || null;
+    let info = document.getElementById("info");
 
-    console.log(`Weeks ${rounds}`);
+    info.innerHTML = '';
+    traininglist.innerHTML = '';
 
     let movements = [];
 
@@ -37,27 +39,43 @@ const countValues = () => {
         movements.push(new Movement("Press", press * 0.90))
     }
 
-    traininglist.innerHTML = '';
-
-    for (let i = 1; i <= rounds; i++) {
-        showWeeksElement(i)
-        showRepsElement();
-        movements.forEach((movement) => {
-            trSets = document.createElement("tr");
-            traininglist.appendChild(trSets);
-            let movementName = document.createElement("th");
-            movementName.innerText = movement.name;
-            trSets.appendChild(movementName);
-            // Wave 1. Warmup, 75%x5, 80%x5, 85%x5
-            countRoundValues(movement, 0.75, 0.80, 0.85);
-            countRoundValues(movement, 0.80, 0.85, 0.90);
-            countRoundValues(movement, 0.75, 0.85, 0.95);
-            countRoundValues(movement, 0.60, 0.65, 0.70);
-            movement.addWeight();
-        })
-        // Empty row
-        let brEmpty = document.createElement("br");
-        traininglist.appendChild(brEmpty);
+    if (1 > rounds || rounds > 12) {
+        let infoText = document.createElement("p");
+        infoText.innerText = "Rounds min 1 and max 12!";
+        info.appendChild(infoText);
+    } else if (squat < 0 || benchpress < 0 || deadlift < 0 || press < 0) {
+        let infoText = document.createElement("p");
+        infoText.innerText = "Trainingmax can't be negative value!";
+        info.appendChild(infoText);
+    } else if (squat > 999 || benchpress > 999 || deadlift > 999 || press > 999) {
+        let infoText = document.createElement("p");
+        infoText.innerText = "Trainingmax can't be over 999kg!";
+        info.appendChild(infoText);
+    } else if (movements.length === 0) {
+        let infoText = document.createElement("p");
+        infoText.innerText = "You have to add at least one trainingmax value!";
+        info.appendChild(infoText);
+    } else {
+        for (let i = 1; i <= rounds; i++) {
+            showWeeksElement(i)
+            showRepsElement();
+            movements.forEach((movement) => {
+                trSets = document.createElement("tr");
+                traininglist.appendChild(trSets);
+                let movementName = document.createElement("th");
+                movementName.innerText = movement.name;
+                trSets.appendChild(movementName);
+                // Wave 1. Warmup, 75%x5, 80%x5, 85%x5
+                countRoundValues(movement, 0.75, 0.80, 0.85);
+                countRoundValues(movement, 0.80, 0.85, 0.90);
+                countRoundValues(movement, 0.75, 0.85, 0.95);
+                countRoundValues(movement, 0.60, 0.65, 0.70);
+                movement.addWeight();
+            })
+            // Empty row
+            let brEmpty = document.createElement("br");
+            traininglist.appendChild(brEmpty);
+        }
     }
 }
 
@@ -123,6 +141,7 @@ const showReps = (firstSetReps, secondSetReps, thirdSetReps) => {
 }
 
 const clearValues = () => {
+    info.innerHTML = '';
     traininglist.innerHTML = '';
     document.getElementById("rounds").value = 1;
     document.getElementById("squat").value = "";
