@@ -1,6 +1,7 @@
 let traininglist = document.getElementById("trainingslist");
 let trSets;
 let trReps;
+let div = document.getElementById("visibility")
 
 function Movement(name, trainingMax) {
     this.name = name;
@@ -76,6 +77,9 @@ const countValues = () => {
             let brEmpty = document.createElement("br");
             traininglist.appendChild(brEmpty);
         }
+
+        // Show table       
+        div.setAttribute('class', 'visible');
     }
 }
 
@@ -148,4 +152,7 @@ const clearValues = () => {
     document.getElementById("benchpress").value = "";
     document.getElementById("deadlift").value = "";
     document.getElementById("press").value = "";
+
+    // Hide table       
+    div.setAttribute('class', 'hidden');
 }

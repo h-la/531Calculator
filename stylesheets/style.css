@@ -43,6 +43,14 @@ table {
     margin-right: auto;
   }
 
+.hidden {
+  display: none;
+  }
+   
+.visible {
+  display: block;
+  }
+
 th {
     border:1px solid #000000;
     padding-left: 0.1em;
